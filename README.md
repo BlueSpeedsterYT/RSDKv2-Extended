@@ -1,4 +1,4 @@
-# Sonic Nexus Extended
+# RSDKv2 Extended
 
 An expanded version of the [RSDKv2 Decompilation](https://github.com/RSDKModding/RSDKv2-Decompilation) meant to enhance the game's power.
 
