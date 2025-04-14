@@ -308,7 +308,10 @@ const FunctionInfo functions[] = { FunctionInfo("End", 0),
                                    FunctionInfo("LoadVideo", 1),
                                    FunctionInfo("NextVideoFrame", 0),
                                    FunctionInfo("PlayStageSfx", 2),
-                                   FunctionInfo("StopStageSfx", 1) };
+                                   FunctionInfo("StopStageSfx", 1),
+                                   FunctionInfo("CheckCurrentStageFolder", 1),
+                                   FunctionInfo("Abs", 1),
+                                   FunctionInfo("Print", 3) };
 
 AliasInfo aliases[0x80] = {
     AliasInfo("true", "1"),          AliasInfo("false", "0"),       AliasInfo("FX_SCALE", "0"),
@@ -597,6 +600,9 @@ enum ScrFunction {
     FUNC_NEXTVIDEOFRAME,
     FUNC_PLAYSTAGESFX,
     FUNC_STOPSTAGESFX,
+    FUNC_CHECKCURRENTSTAGEFOLDER,
+    FUNC_ABS,
+    FUNC_PRINT,
     FUNC_MAX_CNT
 };
 
@@ -1460,6 +1466,8 @@ void ClearScriptData() {
         scriptInfo->spriteSheetID                      = 0;
         typeNames[o][0]                                = 0;
     }
+	
+	SetObjectTypeName((char *)"Blank Object", 0);
 }
 
 void ProcessScript(int scriptCodePtr, int jumpTablePtr, byte scriptSub) {
@@ -2693,6 +2701,30 @@ void ProcessScript(int scriptCodePtr, int jumpTablePtr, byte scriptSub) {
                 opcodeSize = 0;
                 StopSfx(NoGlobalSFX + ScriptEng.operands[0]);
                 break;
+            case FUNC_CHECKCURRENTSTAGEFOLDER:
+                opcodeSize            = 0;
+                ScriptEng.checkResult = StrComp(stageList[ActiveStageList][StageListPosition].folder, ScriptText);
+                break;
+            case FUNC_ABS:
+                ScriptEng.operands[0] = abs(ScriptEng.operands[0]);
+                break;
+            case FUNC_PRINT: {
+                // FUNCTION PARAMS:
+                // scriptEng.operands[0] = message (can be a regular value or a string depending on scriptEng.operands[1])
+                // scriptEng.operands[1] = isInt
+                // scriptEng.operands[2] = useEndLine
+
+                endLine = false;
+                if (ScriptEng.operands[1])
+                    PrintLog("%d", ScriptEng.operands[0]);
+                else
+                    PrintLog("%s", scriptText);
+
+                if (ScriptEng.operands[2])
+                    PrintLog("\n");
+                endLine = true;
+                break;
+            }
         }
 
         // Set Values

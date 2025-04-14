@@ -198,7 +198,6 @@ public:
     bool startFullScreen  = false; // if should start as fullscreen
     bool borderless       = false;
     bool vsync            = false;
-    bool enhancedScaling  = true; // enable enhanced scaling
     int windowScale       = 2;
     int refreshRate       = 60; // user-picked screen update rate
     int screenRefreshRate = 60; // hardware screen update rate

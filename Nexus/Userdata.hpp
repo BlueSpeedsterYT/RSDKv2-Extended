@@ -7,6 +7,8 @@ extern int NO_GLOBALVARIABLES;
 extern int GlobalVariables[GLOBALVAR_COUNT];
 extern char GlobalVariableNames[GLOBALVAR_COUNT][0x20];
 
+extern char gamePath[0x100];
+
 inline int GetGlobalVariableByName(const char *name)
 {
     for (int v = 0; v < NO_GLOBALVARIABLES; ++v) {

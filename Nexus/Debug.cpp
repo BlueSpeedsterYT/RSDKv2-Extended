@@ -12,7 +12,7 @@ void InitSystemMenu() {
     ReleaseStageSfx();
     PaletteMode = 0;
 
-    if (Engine.UseBinFile
+    if (Engine.UseBinFile && !Engine.devMenu
         || ((Engine.startList_Game != 0xFF && Engine.startList_Game) || (Engine.startStage_Game != 0xFF && Engine.startStage_Game))) {
         ClearGraphicsData();
         for (int i = 0; i < PLAYER_COUNT; ++i) PlayerScriptList[i].scriptPath[0] = 0;

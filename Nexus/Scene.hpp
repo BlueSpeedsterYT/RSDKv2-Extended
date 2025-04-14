@@ -39,9 +39,13 @@ enum TileLayerTypes {
 };
 
 enum StageModes {
-    STAGEMODE_LOAD   = 0,
-    STAGEMODE_NORMAL = 1,
-    STAGEMODE_PAUSED = 2,
+    STAGEMODE_LOAD,
+    STAGEMODE_NORMAL,
+    STAGEMODE_PAUSED,
+    STATEMODE_FROZEN,
+    STAGEMODE_NORMAL_STEP,
+    STAGEMODE_PAUSED_STEP,
+    STAGEMODE_FROZEN_STEP,
 };
 
 enum TileInfo {
@@ -66,6 +70,9 @@ enum DeformationModes {
 enum CameraStyles {
     CAMERASTYLE_FOLLOW,
     CAMERASTYLE_EXTENDED,
+    CAMERASTYLE_EXTENDED_OFFSET_L,
+    CAMERASTYLE_EXTENDED_OFFSET_R,
+    CAMERASTYLE_HLOCKED,
 };
 
 struct SceneInfo {
@@ -94,6 +101,8 @@ struct TileLayer {
     int XPos;
     int YPos;
     int ZPos;
+    int deformationOffset;
+    int deformationOffsetW;
     byte type;
     byte xsize;
     byte ysize;
@@ -194,6 +203,7 @@ extern CollisionMasks TileCollisions[2];
 
 extern byte TileGfx[TILESET_SIZE];
 
+void InitFirstStage();
 void ProcessStage();
 
 void ResetBackgroundSettings();
@@ -219,8 +229,10 @@ void Load128x128Mappings();
 void LoadStageCollisions();
 void LoadStageGIFFile(int stageID);
 void LoadStageGFXFile(int stageID);
+void SetLayerDeformation(int selectedDef, int waveLength, int waveType, int deformType, int YPos, int waveSize);
 void SetPlayerScreenPosition(Player *player);
 void SetPlayerScreenPositionCDStyle(Player *player);
+void SetPlayerHLockedScreenPosition(Player *player);
 void SetPlayerLockedScreenPosition(Player *player);
 
 #endif // !SCENE_H
