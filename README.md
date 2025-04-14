@@ -1,8 +1,8 @@
 # RSDKv2 Extended
 
-An expanded version of the [RSDKv2 Decompilation](https://github.com/RSDKModding/RSDKv2-Decompilation) meant to enhance the game's power.
+An expanded version of the [RSDKv2 Decompilation](https://github.com/RSDKModding/RSDKv2-Decompilation) meant to enhance the power of RSDKv2.
 
-Without assets from the Sonic Nexus 2008 demo, this decompilation will not run. You can download the game [here](https://info.sonicretro.org/Sonic_Nexus).
+This supports the 2008 demo of Sonic Nexus. You can download the game [here](https://info.sonicretro.org/Sonic_Nexus).
 
 # Main Features
 * A selection of stuff from RSDKv3 is added, such as proper ArcTan2 systems and Music Loop Points.
