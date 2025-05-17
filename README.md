@@ -1,6 +1,6 @@
-# RSDKv2 Decompilation
+# RSDKv2 Extended Decompilation
 
-A complete decompilation of the Retro-Sonic Engine v2.
+A complete expanded decompilation of the Retro-Sonic Engine v2, with select additional features from RSDKv3 and RSDKv4.
 
 Without assets from the Sonic Nexus 2008 demo, this decompilation will not run. You can download the game [here](https://info.sonicretro.org/Sonic_Nexus).
 
@@ -21,7 +21,7 @@ This project uses [CMake](https://cmake.org/), a versatile building system that 
 Instead, you will need to clone the repository using Git, which you can get [here](https://git-scm.com/downloads).
 
 Clone the repo, using:
-`git clone --recursive https://github.com/RSDKModding/RSDKv2-Decompilation`
+`git clone --recursive https://github.com/RSDK-Extended/RSDKv2-Extended`
 
 ## Getting dependencies
 
@@ -44,7 +44,7 @@ Install the following dependencies: then follow the [compilation steps below](#c
 - **apt (Debian/Ubuntu):** `sudo apt install build-essential cmake libsdl2-dev libogg-dev libvorbis-dev`
 - **rpm (Fedora):** `sudo dnf install make gcc cmake sdl2-devel libogg-devel libvorbis-devel zlib-devel`
 - **apk (Alpine/PostmarketOS)** `sudo apk add build-base cmake sdl2-dev libogg-dev libvorbis-dev`
-- Your favorite package manager here, [make a pull request](https://github.com/RSDKModding/RSDKv2-Decompilation/fork)
+- Your favorite package manager here, [make a pull request](https://github.com/RSDK-Extended/RSDKv2-Extended/fork)
 
 ## Compiling
 
@@ -65,16 +65,9 @@ The following cmake arguments are available when compiling:
 - `RETRO_ORIGINAL_CODE`: Removes any custom code. *A playable game will not be built with this enabled.* Takes a boolean, defaults to `off`.
 - `RETRO_SDL_VERSION`: *Only change this if you know what you're doing.* Switches between using SDL1 or SDL2. Takes an integer of either `1` or `2`, defaults to `2`.
 
-## Unofficial Branches
-Follow the installation instructions in the readme of each branch.
-* For the **Nintendo Switch**, go to [LittlePlanetCD's fork](https://github.com/LittlePlanetCD/Sonic-Nexus-Switch).
-* For **WebAssembly**, go to [Jdsle's fork](https://github.com/Jdsle/RSDKv2-Decompilation/tree/web).
-
-Because these branches are unofficial, we can't provide support for them and they may not be up-to-date.
-
 ## Other Platforms
-Currently the only supported platforms are the ones listed above, however the backend uses libogg, libvorbis, & SDL2 to power it, so the codebase is very multiplatform.
+Currently there are no supported platforms for RSDKv2 Extended, however the backend uses libogg, libvorbis, & SDL2 to power it, so the codebase is very multiplatform.
 If you're able to, you can clone this repo and port it to a platform not on the list.
 
 # Contact:
-Join the [Retro Engine Modding Discord Server](https://dc.railgun.works/retroengine) for any extra questions you may need to know about the decompilation or modding it.
+Join the [Retro Engine Modding Discord Server](https://dc.railgun.works/retroengine) for any extra questions you may need to know about the original RSDKv2 decompilation or modding it.
